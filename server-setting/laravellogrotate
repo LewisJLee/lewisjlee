@@ -1,0 +1,7 @@
+/home/blogpay/web/storage/logs/laravel.log {
+    su apache apache
+    notifempty
+    rotate 10
+    weekly
+    compress
+}

@@ -1,0 +1,11 @@
+server {
+        listen       443 ssl;
+        server_name  sample *.sample;
+
+        ssl_certificate         /etc/nginx/ssl/userSSL/sampem.pem;
+        ssl_certificate_key     /etc/nginx/ssl/userSSL/samkey.key;
+        location / {
+                root /usr/share/nginx/html;
+                index index.html index.htm;
+                }
+}

@@ -1,0 +1,95 @@
+#
+# These groups are read by MariaDB server.
+# Use it for options that only the server (but not clients) should see
+#
+# See the examples of server my.cnf files in /usr/share/mysql/
+#
+
+# this is read by the standalone daemon and embedded servers
+[server]
+
+# this is only for the mysqld standalone daemon
+[mysqld]
+#default-storage-engine         = InnoDB
+open-files-limit               = 65535
+#table-definition-cache         = 1024
+
+character-set-server=utf8mb4
+collation-server=utf8mb4_general_ci
+skip-external-locking
+skip-name-resolve
+
+key-buffer-size = 512M
+#innodb-thread-concurrency=16
+
+thread-cache-size               = 20
+table-open-cache                = 4096
+table-definition-cache          = 2048
+query-cache-size               = 44M
+query-cache-limit               = 1M
+query-cache-min-res-unit = 2k
+query-cache-type = 1
+
+sort-buffer-size                = 6M
+read-buffer-size                = 6M
+read-rnd-buffer-size            = 3M
+join-buffer-size                = 3M
+
+tmp-table-size                  = 32M
+max-heap-table-size             = 32M
+
+back-log                        = 32000
+max-connections                 = 100000
+max-connect-errors              = 1000000
+max-allowed-packet              = 128M
+interactive-timeout             = 600
+wait-timeout                    = 600
+
+innodb                          = FORCE
+innodb-buffer-pool-size        = 64G
+innodb-log-files-in-group      = 2
+innodb-log-file-size           = 256M
+innodb-flush-log-at-trx-commit = 1
+innodb-log-buffer-size         = 4M
+innodb-file-per-table          = 1
+#innodb-file-per-table          = 0
+#innodb-open-files              = 300
+innodb-buffer-pool-instances = 8
+innodb_flush_method=O_DIRECT
+
+#log-output                      = FILE
+slow-query-log                  = 1
+#slow-query-log-file             = /var/lib/mysql/slow-log
+#log-slow-slave-statements
+long-query-time                 = 2
+
+myisam-sort-buffer-size         = 128M
+
+server-id                       = 1
+#log-bin                         = mysql-bin
+expire-logs-days                = 7
+#replicate-do-db                 =
+#binlog-do-db                    =
+#read-only                      = 1
+#sync-binlog                    = 1
+#log-slave-updates              = 1
+#binlog-format                  = STATEMENT
+#auto-increment-offset          = 1
+#auto-increment-increment       = 2
+
+# this is only for embedded server
+[embedded]
+
+# This group is only read by MariaDB servers, not by MySQL.
+# If you use the same .cnf file for MySQL and MariaDB,
+# you can put MariaDB-only options here
+[mariadb]
+log-error=/var/log/mariadb/mariadb.log
+pid-file=/var/run/mariadb/mariadb.pid
+tmpdir=/home/mysqltmp
+
+# This group is only read by MariaDB-10.0 servers.
+# If you use the same .cnf file for MariaDB of different versions,
+# use this group for options that older servers don't understand
+[mariadb-10.6]
+

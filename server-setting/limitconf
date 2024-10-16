@@ -1,0 +1,6 @@
+* hard nofile 65535
+* soft nofile 65535
+php-fpm soft nofile 8192
+php-fpm hard nofile 8192
+* hard nproc 65535
+* soft nproc 65535
