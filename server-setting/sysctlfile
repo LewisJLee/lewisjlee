@@ -1,4 +1,3 @@
-net.ipv4.ip_forward = 0
 net.ipv4.conf.default.rp_filter = 0
 net.ipv4.conf.default.accept_source_route = 0
 kernel.sysrq = 0
@@ -7,10 +6,6 @@ net.ipv4.tcp_syncookies = 1
 net.bridge.bridge-nf-call-ip6tables = 0
 net.bridge.bridge-nf-call-iptables = 0
 net.bridge.bridge-nf-call-arptables = 0
-kernel.msgmnb = 65536
-kernel.msgmax = 65536
-kernel.shmmax = 68719476736
-kernel.shmall = 4294967296
 net.ipv4.conf.all.arp_notify = 1
 net.core.somaxconn=65535
 net.ipv4.tcp_fin_timeout = 10
