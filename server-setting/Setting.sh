@@ -21,17 +21,6 @@ function SYSCTL_CONF(){
 
 	cat ./sysctlfile >> /etc/sysctl.conf
 
-	
-	for i in $(ls /etc/sysconfig/network-scripts/ | grep ifcfg | awk -F"-" '{print $2}' | grep -v lo)
-	do
-		echo "net.ipv4.conf.$i.accept_redirects = 0
-net.ipv4.conf.$i.rp_filter = 0
-net.ipv4.conf.$i.log_martians = 1
-net.ipv4.conf.$i.accept_source_route = 0
-net.ipv4.conf.$i.send_redirects = 0
-net.ipv4.conf.$i.secure_redirects = 0" >> /etc/sysctl.conf
-	done
-
 	echo Done
 }
 ## END ##
